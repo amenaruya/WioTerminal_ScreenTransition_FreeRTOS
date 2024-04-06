@@ -74,7 +74,6 @@ static void ThreadButton(void* pvParameters) {
         = &ButtonReader::mFpW3BGetInput;
     void (ButtonReader::*pmFReadButtonInput)(
         ButtonInputDetection* const pResult
-        
     )   = &ButtonReader::mFReadButtonInput;
 
     while (1) {
