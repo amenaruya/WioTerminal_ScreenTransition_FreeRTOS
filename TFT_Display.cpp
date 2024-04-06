@@ -43,7 +43,7 @@ void Displayer::privateFChangeScreen(const DisplayState newState, TFT_eSPI* cons
         pTftLcd -> fillScreen(TFT_TOKINEZU);
         pTftLcd -> drawString(message, 85, 110);
         pTftLcd -> drawString("C", 10, 2);
-        pTftLcd -> drawString("Back to push C.", 25, 205);
+        pTftLcd -> drawString("Push C to back.", 25, 205);
         this -> privateFChangeDisplayState(newState);
     }
 }
