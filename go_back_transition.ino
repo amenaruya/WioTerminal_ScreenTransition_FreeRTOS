@@ -25,7 +25,7 @@ QueueHandle_t       queueButton;
 
 /*
 TFT LCDの初期化
-クラスメンバーに含めたり函数内で初期化したりすると
+クラスメンバーにそのまま含めたり函数内で初期化したりすると
 正しく動作しない
 */
 TFT_eSPI LIQUID_CRYSTAL_DISPLAY;
@@ -100,8 +100,7 @@ static void ThreadLCD(void* pvParameters) {
     Wio3Button receivedInputButton;
 
     void (Displayer::*pmFChangeDisplay)(
-        const Wio3Button* const pButtonInput,
-        TFT_eSPI* const pTftLcd
+        const Wio3Button* const pButtonInput
     )   = &Displayer::mFChangeDisplay;
 
     while (1) {
@@ -111,7 +110,7 @@ static void ThreadLCD(void* pvParameters) {
             &receivedInputButton,
             portMAX_DELAY
         );
-        (displayer.*pmFChangeDisplay)(&receivedInputButton, &LIQUID_CRYSTAL_DISPLAY);
+        (displayer.*pmFChangeDisplay)(&receivedInputButton);
         delay(150);
     }
 }
