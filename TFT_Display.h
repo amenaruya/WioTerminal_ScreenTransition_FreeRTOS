@@ -11,16 +11,17 @@
 
 class Displayer {
 private:
+    TFT_eSPI* pTft;
     /* 画面表示の状態 */
     DisplayState currentDisplayState;
-    void privateFShowMainScreen(TFT_eSPI* const pTftLcd);
-    void privateFChangeScreen(const DisplayState newState, TFT_eSPI* const pTftLcd);
+    void privateFShowMainScreen();
+    void privateFChangeScreen(const DisplayState newState);
     void privateFChangeDisplayState(const DisplayState newState);
 
 public:
     Displayer(TFT_eSPI* const pTftLcd);
     // ~Displayer();
-    void mFChangeDisplay(const Wio3Button* const pButtonInput, TFT_eSPI* const pTftLcd);
+    void mFChangeDisplay(const Wio3Button* const pButtonInput);
 };
 
 #endif
